@@ -38,7 +38,7 @@ SELECT
    
 FROM fact_sales_order_line__convert_type as fact_line
 
-LEFT JOIN `data-warehousevitdata.wide_world_importers_dwh_staging.stg_fact_sales_orders` as fact_header
+LEFT JOIN {{ref('stg_fact_sales_orders')}} as fact_header
 ON fact_line.sales_order_key =fact_header.sales_order_key
 
 
