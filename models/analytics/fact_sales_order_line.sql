@@ -28,11 +28,17 @@ fact_sales_order_line__convert_type AS(
 )
 
 SELECT 
-   sales_order_line_key
-   ,sales_order_key
-   ,product_key
-   ,quantity
-   ,unit_price
+   fact_line.sales_order_line_key
+   ,fact_line.sales_order_key
+   ,fact_line.product_key
+   ,fact_header.customer_key
+   ,fact_line.quantity
+   ,fact_line.unit_price
    ,quantity * unit_price as gross_amount
    
-FROM fact_sales_order_line__convert_type
+FROM fact_sales_order_line__convert_type as fact_line
+
+LEFT JOIN `data-warehousevitdata.wide_world_importers_dwh_staging.stg_fact_sales_orders` as fact_header
+ON fact_line.sales_order_key =fact_header.sales_order_key
+
+
