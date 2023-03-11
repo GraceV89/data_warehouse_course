@@ -24,4 +24,5 @@ dim_sales__customer_category_convert_type AS (
 SELECT
 customer_category_key
 ,customer_category_name
+
 FROM dim_sales__customer_category_convert_type AS dim_sales__customer_category
