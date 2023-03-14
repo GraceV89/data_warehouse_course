@@ -25,4 +25,5 @@ SELECT
 buying_group_key
 ,buying_group_name
 
+
 FROM dim_sales__buying_group_convert_type AS dim_buying_group_rename
