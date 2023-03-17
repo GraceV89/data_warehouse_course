@@ -29,9 +29,11 @@ dim_product__rename_column AS(
    SELECT
       *
       ,CASE 
-      When is_chiller_stock_boolean IS  TRUE THEN 'Chiller Stock'
-      When is_chiller_stock_boolean IS FALSE THEN 'NOT Chiller Stock'
-      ELSE 'Undefined' END AS is_chiller_stock
+        When is_chiller_stock_boolean IS  TRUE THEN 'Chiller Stock'
+        When is_chiller_stock_boolean IS FALSE THEN 'NOT Chiller Stock'
+        When is_chiller_stock_boolean IS NULL THEN 'Undefined'
+        ELSE 'Invalid' END 
+      AS is_chiller_stock
 
     FROM dim_product__cast_type
 )
