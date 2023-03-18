@@ -33,6 +33,7 @@ SELECT
    ,fact_line.product_key
    ,fact_header.customer_key
    ,fact_header.picked_by_person_key
+   ,fact_header.order_date
    ,fact_line.quantity
    ,fact_line.unit_price
    ,quantity * unit_price as gross_amount
