@@ -22,5 +22,5 @@ fact_sales_orders_convert_type AS(
 SELECT
 sales_order_key
 ,customer_key
-,picked_by_person_key
-FROM fact_sales_orders_convert_type
+,COALESCE(picked_by_person_key, 0) AS picked_by_person_key
+ FROM fact_sales_orders_convert_type
