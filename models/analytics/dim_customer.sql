@@ -43,15 +43,20 @@ SELECT
     dim_customer.customer_key
     ,dim_customer.customer_name
     ,dim_customer_category.customer_category_key
+
     , COALESCE(dim_customer_category.customer_category_name, 'Invalid') AS customer_category_name 
-    ,dim_sales_buying_group.buying_group_key
-    , COALESCE(dim_sales_buying_group.buying_group_name, 'Invalid') AS buying_group_name 
+
+    ,dim_buying_group.buying_group_key
+
+    , COALESCE(dim_buying_group.buying_group_name, 'Invalid') AS buying_group_name 
+
     ,dim_customer.is_on_credit_hold
+
 FROM dim_customer_boolean AS dim_customer
 
   LEFT JOIN {{ref('stg_dim_customer_category')}} AS dim_customer_category
       ON dim_customer.customer_category_key=dim_customer_category.customer_category_key
-  LEFT JOIN {{ref('stg_dim_sales_buying_group')}} AS dim_sales_buying_group
-      ON dim_customer.buying_group_key=dim_sales_buying_group.buying_group_key
+  LEFT JOIN {{ref('stg_dim_sales_buying_group')}} AS dim_buying_group
+      ON dim_customer.buying_group_key=dim_buying_group.buying_group_key
 
 
