@@ -19,7 +19,9 @@ dim_person__convert_type AS(
       ,CAST (full_name AS STRING) AS full_name
   FROM dim_person__rename_column
 )
-,dim_person_add_undefined_row AS (
+
+,
+dim_person_add_undefined_row AS (
   SELECT
     person_key
     ,full_name
@@ -35,7 +37,7 @@ dim_person__convert_type AS(
 SELECT
     person_key
    ,full_name
-FROM dim_person__convert_type
+FROM dim_person_add_undefined_row
 
 
 
