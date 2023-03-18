@@ -43,7 +43,7 @@ dim_product__rename_column AS(
     ,dim_product.product_name 
     ,dim_product.supplier_key
     ,dim_supplier.supplier_name
-    ,dim_product.brand_name
+    ,COALESCE(dim_product.brand_name, 'Undefined') AS brand_name
     ,dim_product.is_chiller_stock
   FROM dim_product_convert_boolean as dim_product
 LEFT JOIN {{ref('dim_supplier')}} as dim_supplier
