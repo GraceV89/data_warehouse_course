@@ -43,9 +43,9 @@ SELECT
     dim_customer.customer_key
     ,dim_customer.customer_name
     ,dim_customer_category.customer_category_key
-    , COALESCE(dim_customer_category.customer_category_name , 'Invalid' AS customer_category_name 
+    , COALESCE(dim_customer_category.customer_category_name, 'Invalid' AS customer_category_name 
     ,dim_sales_buying_group.buying_group_key
-    , COALESCE(dim_sales_buying_group.buying_group_name , 'Invalid' AS buying_group_name 
+    , COALESCE(dim_sales_buying_group.buying_group_name, 'Invalid' AS buying_group_name 
     ,dim_customer.is_on_credit_hold
 FROM dim_customer_boolean AS dim_customer
 
