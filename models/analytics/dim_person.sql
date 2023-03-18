@@ -1,7 +1,7 @@
 WITH dim_person__source AS(
     SELECT 
       *
-    FROM `vit-lam-data.wide_world_importers.application__people `
+    FROM `vit-lam-data.wide_world_importers.application__people`
 )
 ,
 
