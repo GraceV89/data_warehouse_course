@@ -48,7 +48,7 @@ SELECT
 
     ,dim_buying_group.buying_group_key
 
-    , COALESCE(dim_buying_group.buying_group_name, 'Invalid') AS buying_group_name 
+    , COALESCE(dim_buying_group.buying_group_name, 'Invalid') AS buying_group_name
 
     ,dim_customer.is_on_credit_hold
 
